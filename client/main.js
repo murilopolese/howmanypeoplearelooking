@@ -1,17 +1,10 @@
-window.onbeforeunload = function (e) {
-    // TODO: Remove one element from IdiotsOnline when left the page
-    var idiot = IdiotsOnline.findOne();
-    IdiotsOnline.remove({name: idiot.name});
-};
-
-Template.howmany.idiots = function() {
-    return Idiots.find().count();
+console.log(Idiots.findOne({id: 1}).count)
+Idiots.update({id: 1}, {count: 10});
+console.log(Idiots.findOne({id: 1}).count)
+Template.howmany.count = function() {
+    Meteor.call('idiotsOnline', 
+        function(error, value) {
+            
+        });
+    return;
 }
-
-Template.howmany.idiotsOnline = function() {
-    return IdiotsOnline.find().count();
-}
-
-var myFuckingId = Math.random()*1000;
-Idiots.insert({name: myFuckingId});
-IdiotsOnline.insert({name: myFuckingId});

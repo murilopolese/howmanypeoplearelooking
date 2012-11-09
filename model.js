@@ -1,2 +1,2 @@
 Idiots = new Meteor.Collection("idiots");
-IdiotsOnline = new Meteor.Collection("idiotsOnline");
+Idiots.insert({id: 1, count: 0})
