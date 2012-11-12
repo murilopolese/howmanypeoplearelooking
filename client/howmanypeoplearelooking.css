@@ -1,8 +1,18 @@
 body {
     color: #444444;
-    font-size: 2em;
+    font-size: 40px;
     font-family: 'Offside', cursive;
 }
 h1, h2 {
     text-align: center;
+}
+h2 a {
+    font-size: 14px;
+}
+a:link, a:active, a:visited {
+    text-decoration: none;
+    color: #666666;
+}
+a:hover {
+    color: #555555;
 }
