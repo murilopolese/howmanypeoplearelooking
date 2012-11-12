@@ -4,6 +4,7 @@ Meteor.setInterval(function() {
         })
 }, 100);
 Meteor.startup(function(){
+    Idiots.remove({});
     Idiots.insert({
         count: 0
     });
