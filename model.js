@@ -1,1 +1,1 @@
-Idiots = new Meteor.Collection("idiots");
+Dumbs = new Meteor.Collection("dumbs");
