@@ -1,5 +1,5 @@
 Meteor.startup(function(){
-    Dumbs.remove({});
+    People.remove({});
     Meteor.default_server.stream_server.register( Meteor.bindEnvironment( function(socket) {
         var intervalID = Meteor.setInterval(function() {
             if (socket.meteor_session) {
@@ -12,16 +12,16 @@ Meteor.startup(function(){
 
                 socket.id = socket.meteor_session.id;
 
-                Dumbs.insert(connection); 
+                People.insert(connection);
 
                 Meteor.clearInterval(intervalID);
             }
         }, 1000);
 
         socket.on('close', Meteor.bindEnvironment(function () {
-            Dumbs.remove({
+            People.remove({
                 connectionID: socket.id
-                });
+            });
         }, function(e) {
             Meteor._debug("Exception from connection close callback:", e);
         }));
@@ -29,5 +29,3 @@ Meteor.startup(function(){
         Meteor._debug("Exception from connection registration callback:", e);
     }));
 })
-
-

@@ -1,6 +1,6 @@
-Template.howmany.count = function() {
-    if(Dumbs.find() != undefined) {
-        return Dumbs.find().fetch().length;
+Template.howmany.count = function () {
+    if (People.find() != undefined) {
+        return People.find().fetch().length;
     }
     return 'Well well well...';
 }
