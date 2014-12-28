@@ -1,16 +1,16 @@
 Meteor.startup(function(){
     People.remove({});
-    Meteor.default_server.stream_server.register( Meteor.bindEnvironment( function(socket) {
+    Meteor.server.stream_server.register( Meteor.bindEnvironment( function(socket) {
         var intervalID = Meteor.setInterval(function() {
-            if (socket.meteor_session) {
+            if (socket._meteorSession) {
 
                 var connection = {
-                    connectionID: socket.meteor_session.id,
+                    connectionID: socket._meteorSession.id,
                     connectionAddress: socket.address,
-                    userID: socket.meteor_session.userId
+                    userID: socket._meteorSession.userId
                 };
 
-                socket.id = socket.meteor_session.id;
+                socket.id = socket._meteorSession.id;
 
                 People.insert(connection);
 
